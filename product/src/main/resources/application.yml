@@ -4,7 +4,7 @@ server:
 spring:
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://mariadb:3306/Hand2Hand
+    url: jdbc:mariadb://localhost:3306/Hand2Hand
     username: root
     password: 0315
 
