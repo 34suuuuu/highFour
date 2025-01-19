@@ -9,6 +9,7 @@ import lombok.Builder;
 @Builder
 public record ReviewCreateReqDto(
 	Long productId,
+	Long memberId,
 	Long rating,
 	String contents,
 	List<String> imgUrls
@@ -18,6 +19,7 @@ public record ReviewCreateReqDto(
 		return Review.builder()
 			.productId(productId)
 			.rating(this.rating)
+			.memberId(this.memberId)
 			.contents(this.contents)
 			.build();
 	}

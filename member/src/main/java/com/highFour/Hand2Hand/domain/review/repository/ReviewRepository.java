@@ -1,5 +1,6 @@
 package com.highFour.Hand2Hand.domain.review.repository;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -10,4 +11,6 @@ import com.highFour.Hand2Hand.domain.review.entity.Review;
 @Repository
 public interface ReviewRepository extends JpaRepository<Review, Long> {
 	Optional<Review> findByProductId(Long productId);
+
+	List<Review> findAllByProductId(Long productId);
 }
