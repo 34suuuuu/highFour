@@ -50,4 +50,7 @@ public class Member extends BaseTimeEntity {
     @Enumerated(EnumType.STRING)
     private Role role;
 
+    @Builder.Default
+    private boolean isVerified = false;
+
 }
