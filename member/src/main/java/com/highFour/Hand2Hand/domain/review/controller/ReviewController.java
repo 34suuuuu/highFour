@@ -25,7 +25,7 @@ public class ReviewController {
 	private final ReviewService reviewService;
 
 	@PostMapping("/{productId}/create")
-	public ResponseEntity<?> createReview(@PathVariable Long productId,
+	public ResponseEntity<?> createReview(@PathVariable(name = "productId") Long productId,
 		@RequestBody ReviewCreateReqDto reqDto) {
 		reviewService.createReview(productId, reqDto);
 		return new ResponseEntity<>(HttpStatus.CREATED);
@@ -33,7 +33,7 @@ public class ReviewController {
 
 	// 상품별 리뷰 조회
 	@GetMapping("/{productId}/list")
-	public ResponseEntity<?> getReviewList(@PathVariable Long productId) {
+	public ResponseEntity<?> getReviewList(@PathVariable(name = "productId") Long productId) {
 		List<ReviewListResDto> reviews = reviewService.getReviewsByProductId(productId);
 		return ResponseEntity.status(HttpStatus.OK).body(reviews);
 	}

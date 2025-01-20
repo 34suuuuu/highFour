@@ -1,5 +1,6 @@
 package com.highFour.Hand2Hand.domain.review.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -27,5 +28,6 @@ public class ReviewImg {
 	@JoinColumn(name = "review_id")
 	private Review review;
 
+	@Column(columnDefinition = "varchar(5000)")
 	private String imgUrl;
 }
