@@ -12,6 +12,21 @@ spring:
 
   cloud:
     gateway:
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: 'http://localhost:8080'
+            allow-credentials: true
+            allowedHeaders: '*'
+            allowedMethods:
+              - PUT
+              - GET
+              - POST
+              - DELETE
+              - OPTIONS
+              - PATCH
       routes:
         # product-service에 대한 라우팅 규칙 설정
         - id: product-service
@@ -47,6 +62,7 @@ spring:
           filters:
             - StripPrefix=1
           uri: lb://chat-service
+
 
 eureka:
   client:
